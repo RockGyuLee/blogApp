@@ -4,6 +4,7 @@ import theme from "./theme.js";
 import {Text, Container} from "./components/Main";
 import Header from "./Header";
 export default function App(){
+
     return(
         <ThemeProvider theme={theme}>
             <Header height="8vh"/>

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {Text, Container, Flex} from "./components/Main";
 
 const HyperText = styled(Text)`
+    
     cursor: pointer;
     &:hover {
         color : gold;
@@ -11,15 +12,15 @@ const HyperText = styled(Text)`
 
 function HeaderList({datas}){
     return(
-        <Flex css={{position : "absolute", verticalAlign: "middle"}}>
+        <div style={{marginTop : "25px"}}>
             {
                 datas.map(item => {
                    return(
-                        <HyperText css={{marginRight : "20px"}}>{item.displayName}</HyperText>
+                        <HyperText css={{marginRight : "60px"}}>{item.displayName}</HyperText>
                    ) 
                 })
             }
-        </Flex>
+        </div>
     )
 }
 
@@ -40,14 +41,11 @@ function Header(props){
             path : '',
         }
     ]
-
     return(
-        <Container height={props.height}>
-            <Flex>
-                <Text size={"titleSize"}>Rlay</Text>
-                <Container width="100%" height="50%" margin="10px" >
-                    <HeaderList datas={categoryList} />
-                </Container>
+        <Container height={props.height} css={{position : "relative", margin : "0 auto"}}>
+            <Flex css={{position : "absolute", top : "50%", transform : "translateY(-50%)"}}>
+                <Text size={"titleSize"} css={{margin : "0px 50px"}}>Rlay</Text>
+                <HeaderList datas={categoryList} />
             </Flex>
         </Container>
     )
