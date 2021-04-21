@@ -12,5 +12,10 @@ export const Flex = styled.div`
 
 
 export const Text = styled.span`
-    font-size : ${({theme, size})=> theme.fontSizes[size]}
+    font-size : ${({theme, size})=> theme.fontSizes[size]};
+`
+
+export const Atag = styled.a`
+    text-decoration : none;
+    color : ${({theme}) => theme.colors.black}
 `

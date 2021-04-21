@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import {Text, Container, Flex} from "./components/Main";
+import {Text, Container, Flex, Atag} from "./components/Main";
 
 const HyperText = styled(Text)`
     
@@ -11,12 +11,19 @@ const HyperText = styled(Text)`
 `
 
 function HeaderList({datas}){
+
     return(
         <div style={{marginTop : "25px"}}>
             {
-                datas.map(item => {
+                datas.map((item, idx) => {
                    return(
-                        <HyperText css={{marginRight : "60px"}}>{item.displayName}</HyperText>
+                    <Atag key={idx} href={item.path}>
+                        <HyperText 
+                        css={{marginRight : "60px"}}
+                        >
+                            {item.displayName}
+                        </HyperText>
+                    </Atag>
                    ) 
                 })
             }
@@ -29,16 +36,16 @@ function Header(props){
     const categoryList = [
         {
             displayName : "소개",
-            path : '',
+            path : '/intro',
         },{
             displayName : "프로젝트",
-            path : '',
+            path : '/project',
         },{
             displayName : "블로그",
-            path : '',
+            path : '/blog',
         },{
             displayName : "깃허브",
-            path : '',
+            path : '/github',
         }
     ]
     return(
