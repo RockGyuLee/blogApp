@@ -40,7 +40,8 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             template: './public/index.html',
-            filename : "./index.html"
+            filename : "./index.html",
+            chunks:['index']
         })
     ],
     devServer : {

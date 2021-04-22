@@ -6,7 +6,7 @@ const Intro = React.lazy(()=> import("../pages/Intro"));
 
 const routes = [
     {
-        path : "/Hq",
+        path : "/",
         exact : true,
         main : Hq
     },
@@ -18,18 +18,22 @@ const routes = [
 ];
 
 function PageSwitcher(props){
-    console.log("props",props);
     return(
-        <Router>
-            <Switch>
-                <Suspense fallback={<div>로딩중입니다...</div>}>
-                    <Route 
-                        path={props.info["iniPage"]}
-                        children={<Intro/>}
-                    />
-                </Suspense>
-            </Switch>
-        </Router>
+        <Switch>
+            <Suspense fallback={<div>로딩중입니다...</div>}>
+                {console.log("test",routes)}
+                {
+                    routes.map( (r, idx) => (
+                        <Route
+                            key={idx}
+                            path={r.path}
+                            exact={r.exact}
+                            children={<r.main/>}
+                        />
+                    ))
+                }
+            </Suspense>
+        </Switch>
     )
 }
 
