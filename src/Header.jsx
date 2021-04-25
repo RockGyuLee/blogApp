@@ -25,7 +25,6 @@ const categoryList = [
 const MobileContainer = styled(Container)`
     display : flex;
     align-items: center; 
-    justify-content: space-between; 
     padding: 0 10px; 
 `
 
@@ -36,7 +35,6 @@ const LinkTag = styled(Link)`
 
 const Dropdown = styled.div`
     position: relative;
-    display: inline-block;
 `
 
 const DropdownList = styled.div`
@@ -45,11 +43,11 @@ const DropdownList = styled.div`
     position: absolute;
     border : 3px solid black;
     background-color: #f9f9f9;
-    min-width: 50px;
+    width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     margin-right : 5%;
     margin-top : 5px;
-    padding: 12px 16px;
+    padding: 10px 5px;
     z-index: 1;
 `
 
@@ -95,13 +93,16 @@ function HeaderTableOrMobileList({datas}){
                         {
                             datas.map((item, idx) => {
                             return(
-                                <LinkTag key={idx} to={item.path}>
-                                    <HyperText 
-                                        css={{marginRight : "60px"}}
-                                    >
-                                        {item.displayName}
-                                    </HyperText>
-                                </LinkTag>
+                                <Container width="100%" height="100%" css={{borderBottom : "solid 2px", marginBottom : "10px", paddingBottom : "2px"}}>
+                                    <LinkTag key={idx} to={item.path}>
+                                        <HyperText 
+                                            css={{marginRight : "5px"}}
+                                        >
+                                            {item.displayName}
+                                        </HyperText>
+                                    </LinkTag>
+                                </Container>
+                                
                                 
                             ) 
                             })
