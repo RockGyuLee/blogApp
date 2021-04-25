@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from "styled-components";
-import {BrowserRouter as Router,Route, Switch } from "react-router-dom";
+import {BrowserRouter as Router } from "react-router-dom";
 
 import theme from "./theme.js";
 import {Text, Container} from "./components/Main";

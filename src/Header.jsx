@@ -3,9 +3,6 @@ import styled from "styled-components";
 import {Link, BrowserRouter as Router,Route, Switch} from "react-router-dom";
 import {Text, Container, Flex, Atag} from "./components/Main";
 
-import Hq from "./pages/Hq";
-import Intro from "./pages/Intro";
-
 const LinkTag = styled(Link)`
     text-decoration : none;
     color : ${({theme}) => theme.colors.black}
