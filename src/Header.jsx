@@ -132,7 +132,7 @@ export function HeaderTableOrMobile(props){
         <MobileContainer height={props.height} css={{position : "relative", margin : "0 auto", borderBottom : "solid 1px #eee"}}>
             <div style={{width : "20%"}}>
                 <LinkTag to={"/"} >
-                    <HyperText size={"titleSize"}>Rlay</HyperText>
+                    <HyperText size={"titleSize"} css={{margin : "0px 0px 0px 10px"}}>Rlay</HyperText>
                 </LinkTag>
                 
             </div>

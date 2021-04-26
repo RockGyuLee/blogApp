@@ -1,6 +1,5 @@
 const path = require('path')                                       
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require("copy-webpack-plugin");
 const webpack = require("webpack");
 
 module.exports = {
@@ -28,8 +27,13 @@ module.exports = {
                 use: [
                     {
                         loader: 'file-loader',
+                        options : {
+                            regExp: /\/([a-z0-9]+)\/[a-z0-9]+\.png$/i,
+                            name: '[1]-[name].[ext]',
+                        }
                     },
                 ],
+                
             },
             {
                 test: /\.html$/i,
