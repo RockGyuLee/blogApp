@@ -21,7 +21,6 @@ function PageSwitcher(props){
     return(
         <Switch>
             <Suspense fallback={<div>로딩중입니다...</div>}>
-                {console.log("test",routes)}
                 {
                     routes.map( (r, idx) => (
                         <Route
