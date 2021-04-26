@@ -1,5 +1,6 @@
 const path = require('path')                                       
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 const webpack = require("webpack");
 
 module.exports = {
@@ -8,7 +9,7 @@ module.exports = {
     entry: ['./src/index.jsx'],
     output: {                                           
         path: path.join(__dirname, '/dist'),            
-        filename: '[name].js'
+        filename: '[name].js',
     },
     resolve: {
         extensions: ['.js', '.jsx','.styl'],
@@ -23,8 +24,12 @@ module.exports = {
                 }
             },
             {
-                test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-                loader: 'file-loader'
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                    },
+                ],
             },
             {
                 test: /\.html$/i,
@@ -32,7 +37,7 @@ module.exports = {
                     {
                         loader: "html-loader"
                     }
-                ]
+                ],
             }
         ]
     },
@@ -41,7 +46,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './public/index.html',
             filename : './index.html',
-        })
+        }),
     ],
     devServer : {
         hot : true,

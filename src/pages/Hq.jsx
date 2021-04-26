@@ -2,9 +2,7 @@ import React from 'react';
 
 function Hq(props){
     return(
-        <div>
-            TEST
-        </div>
+        <div>TEST</div>
     )
 }
 

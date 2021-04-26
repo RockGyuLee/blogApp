@@ -25,7 +25,6 @@ const categoryList = [
 const MobileContainer = styled(Container)`
     display : flex;
     align-items: center; 
-    padding: 0 10px; 
 `
 
 const LinkTag = styled(Link)`
@@ -66,7 +65,7 @@ function HeaderList({datas}){
                 datas.map((item, idx) => {
                    return(
                     <LinkTag key={idx} to={item.path}>
-                        <HyperText 
+                        <HyperText size={"xxxl"}
                         css={{marginRight : "60px"}}
                         >
                             {item.displayName}
@@ -116,10 +115,10 @@ function HeaderTableOrMobileList({datas}){
 
 function Header(props){
     return(
-        <Container height={props.height} css={{position : "relative", margin : "0 auto"}}>
+        <Container height={props.height} css={{position : "relative", margin : "0 auto", borderBottom : "solid 1px #eee"}}>
             <Flex css={{position : "absolute", top : "50%", transform : "translateY(-50%)"}}>
                 <LinkTag to={"/"} css={{width : "10vw"}}>
-                    <HyperText size={"titleSize"} css={{margin : "0px"}}>Rlay</HyperText>
+                    <HyperText size={"titleSize"} css={{margin : "0px 0px 0px 10px"}}>Rlay</HyperText>
                 </LinkTag>
                 <HeaderList datas={categoryList} />
             </Flex>
@@ -129,7 +128,7 @@ function Header(props){
 
 export function HeaderTableOrMobile(props){
     return (
-        <MobileContainer height={props.height} css={{position : "relative", margin : "0 auto"}}>
+        <MobileContainer height={props.height} css={{position : "relative", margin : "0 auto", borderBottom : "solid 1px #eee"}}>
             <div style={{width : "20%"}}>
                 <LinkTag to={"/"} >
                     <HyperText size={"titleSize"}>Rlay</HyperText>
