@@ -1,5 +1,6 @@
 const path = require('path')                                       
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require("webpack");
 
 module.exports = {
@@ -23,17 +24,25 @@ module.exports = {
                 }
             },
             {
+                test: /\.styl$/,
+                use:[
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'stylus-loader',
+                ],
+            },
+            {
                 test: /\.(png|jpe?g|gif)$/i,
                 use: [
                     {
                         loader: 'file-loader',
-                        options : {
-                            regExp: /\/([a-z0-9]+)\/[a-z0-9]+\.png$/i,
-                            name: '[1]-[name].[ext]',
-                        }
                     },
                 ],
                 
+            },
+            {
+                test: /\.css$/i,
+                use: [MiniCssExtractPlugin.loader, 'css-loader',],
             },
             {
                 test: /\.html$/i,
@@ -47,6 +56,7 @@ module.exports = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
+        new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({
             template: './public/index.html',
             filename : './index.html',
