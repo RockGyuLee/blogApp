@@ -18,7 +18,7 @@ function HqIntro(props){
                 justifyContent: "center"
             }}>
                 <div>
-                    <Span size="xxxl"> Myself</Span>
+                    <Span size="xxxl"> Myself </Span>
                 </div>
             </Container>
         </Container>
@@ -29,7 +29,18 @@ function Hq(props){
     return(
         <div>
             <div style={{width : "100%", height:"100%", backgroundColor : "black"}}>
-                <img src="../../public/r.png"/>
+                <img src='./imgs/r.png'/>
+            </div>
+            <HqIntro/>
+        </div>
+    )
+}
+
+export function TabletHq(props){
+    return(
+        <div>
+            <div style={{width : "100%", height:"100%", backgroundColor : "black"}}>
+                <div>테블릿 영역입니다.</div>
             </div>
             <HqIntro/>
         </div>

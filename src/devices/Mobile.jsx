@@ -8,7 +8,7 @@ function Mobile(props){
         <>
             <HeaderTableOrMobile height="8vh"/>
             <Container height="92vh">
-                <PageSwitcher info={{iniPage: 'hq'}}/>
+                <PageSwitcher device={"mobile"}/>
             </Container>
         </>
     )

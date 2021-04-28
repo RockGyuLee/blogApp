@@ -8,7 +8,7 @@ function DesktopOrLaptop(props){
         <>
             <Header height="8vh"/>
             <Container height="92vh">
-                <PageSwitcher info={{iniPage: 'hq'}} device={"desktop"}/>
+                <PageSwitcher device={"desktop"}/>
             </Container>
         </>
     )
