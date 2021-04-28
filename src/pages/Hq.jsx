@@ -29,7 +29,7 @@ function Hq(props){
     return(
         <div>
             <div style={{width : "100%", height:"100%", backgroundColor : "black"}}>
-                <img src="../../public/r.png"/>
+                <img src='./imgs/r.png'/>
             </div>
             <HqIntro/>
         </div>
