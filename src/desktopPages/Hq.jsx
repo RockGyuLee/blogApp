@@ -1,11 +1,21 @@
-import React, {useState, useEffect} from 'react';
+import React, {Fragment} from 'react';
 import styled from "styled-components";
 import Typed from "react-typed";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faBuilding, faGamepad} from "@fortawesome/free-solid-svg-icons"
 
-import { Container, Text } from "../components/Main";
+import { Container, Text, Flex } from "../components/Main";
 
 const Span = styled(Text)`
-    color : ${({theme }) => theme.colors.black};
+    color : ${({color, theme }) => theme.colors[color] || theme.colors.main};
+`
+
+const FontIconMainColor = styled(FontAwesomeIcon)`
+    color :  ${({theme }) => theme.colors.main};
+`
+
+const ClickDiv = styled.div`
+    cursor: pointer;
 `
 
 const Ptag = styled.p`
@@ -17,13 +27,17 @@ const Inlineli = styled.li`
     display : inline-block;
 `
 
-const strArray =  [
+const Flexx = styled(Flex)`
+    justify-content: space-evenly;
+`
+
+export const strArray =  [
     "코딩하는 순간을 즐기고 있습니다.",
     "다양한 사람, 새로운 기술들을 만나는걸 좋아합니다. :)",
     "완벽한 사람보다는 빈틈있는 사람이며 협업으로 더 나은 오늘과 내일을 보냅니다.",
 ];
 
-const skills = [
+export const skills = [
     {
         name : "FrontEnd",
         img : "./imgs/front.png",
@@ -37,14 +51,14 @@ const skills = [
     {
         name : "Collaboration",
         img : "./imgs/collaboration.png",
-        contents : "Git 버전관리 · Webpack 모듈 번들러 사용 \n Firebase 플랫폼 사용\n Figma UI/UX 협업"
+        contents : "Git 버전관리 · Webpack 번들러 사용 \n Firebase 플랫폼 사용\n Figma UI/UX 협업"
     }
 ]
 
 function HqIntro(props){
 
     return(
-        <Container width="auto" height="500px" css={{
+        <Container width="auto" height="auto" css={{
             position : 'relative',
             textAlign : 'center',
             margin : '0 auto'
@@ -57,16 +71,18 @@ function HqIntro(props){
                 </Ptag>
                 <ul>
                     {
-                        skills.map( s => (
-                            <Inlineli css={{width : '33%'}}>
+                        skills.map( (s, idx) => (
+                            <Inlineli key={idx} css={{width : '33%'}}>
                                 <div style={{display : 'block'}}>
                                     <img src={s.img} width={"250px"} height={"250px"}/>
                                     <h3>{s.name}</h3>
                                 </div>
                                 <Ptag size="lg">
                                 {
-                                    s.contents.split('\n').map( line => (
-                                        <>{line}<br/></>
+                                    s.contents.split('\n').map( (line, idx) => (
+                                        <Fragment key={idx}>
+                                            {line}<br/>
+                                        </Fragment>
                                     ))
                                 }
                                 </Ptag>
@@ -81,15 +97,53 @@ function HqIntro(props){
 
 function HqProject(props){
     return (
-        <Container width="auto" height="500px" css={{
+        <Container width="auto" height="auto" css={{
             position : 'relative',
-            textAlign : 'center',
             margin : '0 auto',
             backgroundColor : '#F2F2F2'
         }}>
-            <div style={{marginTop : "20px"}}>
-                <Span size="xxxl"> - Project -</Span>
-            </div>
+            <Flexx>
+                <ClickDiv style={{display : 'flex', width : '33%', border : "solid", marginTop : '1%', marginBottom : '1%'}}>
+                    <div style={{ marginTop : '1%', marginLeft : '1%', marginBottom : '1%', width : '70%'}}>
+                        <Span size="xxxl">
+                            회사 · 납품 프로젝트<br/>
+                        </Span>
+                        <br/>
+                        <Span size="lg" color="black">
+                            회사에서 진행한 프로젝트입니다.<br/>
+                            실제 운용되고 있는 프로그램이며 제품 운용중입니다.
+                        </Span>
+                        <br/>
+                        <br/>
+                        <Span size="lg" color="black">
+                            더 보기 →
+                        </Span>
+                    </div>
+                    <div style={{ display : 'flex', alignItems : 'center', justifyContent : 'center', margin : '1%', width : '30%', }}>
+                        <FontIconMainColor icon = {faBuilding} size={"5x"}/>
+                    </div>
+                </ClickDiv>
+                <ClickDiv style={{display : 'flex', width : '33%', border : "solid", marginTop : '1%', marginBottom : '1%'}}>
+                    <div style={{ marginTop : '2%', marginLeft : '1%', width : '70%'}}>
+                        <Span size="xxxl">
+                            Toy 프로젝트<br/>
+                        </Span>
+                        <br/>
+                        <Span size="lg" color="black">
+                            다양한 기술들을 접하고 개발한 포트폴리오입니다.<br/>
+                            학습용 프로그램, 간단한 서비스들 개발 활동입니다. 
+                        </Span>
+                        <br/>
+                        <br/>
+                        <Span size="lg" color="black">
+                            더 보기 →
+                        </Span>
+                    </div>
+                    <div style={{ display : 'flex', alignItems : 'center', justifyContent : 'center', margin : '1%', width : '30%', }}>
+                        <FontIconMainColor icon = {faGamepad} size={"5x"}/>
+                    </div>
+                </ClickDiv>
+            </Flexx>
         </Container>
     )
 }

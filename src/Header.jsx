@@ -60,17 +60,32 @@ const HyperText = styled(Text)`
 
 function HeaderList({datas}){
 
+    const moveToGithub = () => {
+        window.open("https://github.com/RockGyuLee")
+    }
+
     return(
         <div style={{marginTop : "25px", width : "90vw"}}>
             {
                 datas.map((item, idx) => {
                    return(
                     <LinkTag key={idx} to={item.path}>
-                        <HyperText size={"xxxl"}
-                        css={{marginRight : "60px"}}
-                        >
-                            {item.displayName}
-                        </HyperText>
+                        {
+                            item.displayName == '깃허브'
+                            ? 
+                            <HyperText size={"xxxl"} onClick={moveToGithub}
+                            css={{marginRight : "60px"}}
+                            >
+                                {item.displayName}
+                            </HyperText>
+                            :
+                            <HyperText size={"xxxl"}
+                            css={{marginRight : "60px"}}
+                            >
+                                {item.displayName}
+                            </HyperText>
+                            
+                        }
                     </LinkTag>
                    ) 
                 })
@@ -82,6 +97,12 @@ function HeaderList({datas}){
 function HeaderTableOrMobileList({datas}){
     const [isPagelistShow, setIsPagelistShow] = useState(false);
     console.log("is",isPagelistShow);
+
+    const moveToGithub = () => {
+        //https://github.com/RockGyuLee
+        window.open("https://github.com/RockGyuLee")
+    }
+
     return (
         <Dropdown style={{display : 'inline-block',  width : "80%"}}>
             <Flex css={{justifyContent : 'flex-end' , marginRight : '5%'}} onClick={()=> setIsPagelistShow(!isPagelistShow)}>
@@ -93,16 +114,27 @@ function HeaderTableOrMobileList({datas}){
                         {
                             datas.map((item, idx) => {
                             return(
-                                <Container width="100%" height="100%" css={{borderBottom : "solid 2px", marginBottom : "10px", paddingBottom : "2px"}}>
-                                    <LinkTag key={idx} to={item.path}>
-                                        <HyperText 
-                                            css={{marginRight : "5px"}}
-                                        >
-                                            {item.displayName}
-                                        </HyperText>
-                                    </LinkTag>
-                                </Container>
-                                
+                                <>
+                                    {
+                                        item.displayName == '깃허브'
+                                        ? <Container width="100%" height="100%" css={{borderBottom : "solid 2px", marginBottom : "10px", paddingBottom : "2px"}}>
+                                                    <HyperText onClick={moveToGithub}
+                                                        css={{marginRight : "5px"}}
+                                                    >
+                                                        {item.displayName}
+                                                    </HyperText>
+                                          </Container>
+                                        : <Container width="100%" height="100%" css={{borderBottom : "solid 2px", marginBottom : "10px", paddingBottom : "2px"}}>
+                                            <LinkTag key={idx} to={item.path}>
+                                                <HyperText 
+                                                    css={{marginRight : "5px"}}
+                                                >
+                                                    {item.displayName}
+                                                </HyperText>
+                                            </LinkTag>
+                                        </Container>
+                                    }
+                                </>
                                 
                             ) 
                             })
