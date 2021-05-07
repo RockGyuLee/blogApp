@@ -19,3 +19,8 @@ export const Atag = styled.a`
     text-decoration : none;
     color : ${({theme}) => theme.colors.black}
 `
+
+export const Line = styled.div`
+    border : dashed 1px;
+    color : ${({theme, color})=> theme.colors[color]};
+`

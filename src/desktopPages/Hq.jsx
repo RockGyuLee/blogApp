@@ -14,6 +14,10 @@ const FontIconMainColor = styled(FontAwesomeIcon)`
     color :  ${({theme }) => theme.colors.main};
 `
 
+const Title = styled.h3`
+    color : ${({theme }) => theme.colors.main};
+`
+
 const ClickDiv = styled.div`
     cursor: pointer;
 `
@@ -21,6 +25,13 @@ const ClickDiv = styled.div`
 const Ptag = styled.p`
     font-size : ${({size, theme}) => theme.fontSizes[size]};
     color : ${({color, theme}) => theme.colors[color] || theme.colors['black']}
+`
+
+const Ul = styled.ul`
+    margin-block-start : 2%;
+    margin-block-end : 2%;
+    margin-inline-start : 5%;
+    margin-inline-end : 5%;
 `
 
 const Inlineli = styled.li`
@@ -69,13 +80,13 @@ function HqIntro(props){
                     개발 파트별로 정리한 기술 스택입니다.<br></br>
                     분야별 기술에 대하여 더 자세한 내용은 소개 페이지에서 확인이 가능합니다.
                 </Ptag>
-                <ul>
+                <Ul>
                     {
                         skills.map( (s, idx) => (
                             <Inlineli key={idx} css={{width : '33%'}}>
                                 <div style={{display : 'block'}}>
                                     <img src={s.img} width={"250px"} height={"250px"}/>
-                                    <h3>{s.name}</h3>
+                                    <Title color='main'>{s.name}</Title>
                                 </div>
                                 <Ptag size="lg">
                                 {
@@ -89,7 +100,7 @@ function HqIntro(props){
                             </Inlineli>
                         ))
                     }
-                </ul>
+                </Ul>
             </div>
         </Container>
     )
@@ -103,10 +114,10 @@ function HqProject(props){
             backgroundColor : '#F2F2F2'
         }}>
             <Flexx>
-                <ClickDiv style={{display : 'flex', width : '33%', border : "solid", marginTop : '1%', marginBottom : '1%'}}>
+                <ClickDiv style={{display : 'flex', width : '33%', border : "solid", borderWidth : 'thin', marginTop : '1%', marginBottom : '1%'}}>
                     <div style={{ marginTop : '1%', marginLeft : '1%', marginBottom : '1%', width : '70%'}}>
                         <Span size="xxxl">
-                            회사 · 납품 프로젝트<br/>
+                            회사 프로젝트<br/>
                         </Span>
                         <br/>
                         <Span size="lg" color="black">
@@ -123,7 +134,7 @@ function HqProject(props){
                         <FontIconMainColor icon = {faBuilding} size={"5x"}/>
                     </div>
                 </ClickDiv>
-                <ClickDiv style={{display : 'flex', width : '33%', border : "solid", marginTop : '1%', marginBottom : '1%'}}>
+                <ClickDiv style={{display : 'flex', width : '33%', border : "solid", borderWidth : 'thin', marginTop : '1%', marginBottom : '1%'}}>
                     <div style={{ marginTop : '2%', marginLeft : '1%', width : '70%'}}>
                         <Span size="xxxl">
                             Toy 프로젝트<br/>
@@ -156,7 +167,7 @@ function Hq(props){
             }}>
                 <div style={{float : 'right', margin : '5%', width : '600px'}}>
                     <Ptag size="xl" color="white">
-                        Rlay라는 단어는 “락규가 즐거워한다.”를 <br/>
+                        Rlay라는 단어는 <Span size="xxl" color="main">“ 락규가 즐거워한다. ”</Span>를 <br/>
                         영어이름 + 영단어의 조합 Rock + Play 를 합친 단어입니다.<br/>
                         <br/>
                         <Typed 
