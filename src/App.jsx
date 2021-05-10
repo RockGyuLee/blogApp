@@ -7,6 +7,7 @@ import Tablet from "./devices/Tablet";
 import Mobile from "./devices/Mobile";
 
 import theme from "./theme.js";
+import ScrollToTop from "./ScrollToTop";
 
 import { useMediaQuery } from "react-responsive";
 
@@ -19,6 +20,7 @@ export default function App(){
     return(
         <ThemeProvider theme={theme}>
             <Router>
+                <ScrollToTop />
                 {isDesktopOrLaptop && <DesktopOrLaptop/>}
                 {isTablet && <Tablet/>}
                 {isMobile && <Mobile/>}

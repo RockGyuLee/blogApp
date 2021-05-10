@@ -30,8 +30,8 @@ const Ptag = styled.p`
 const Ul = styled.ul`
     margin-block-start : 2%;
     margin-block-end : 2%;
-    margin-inline-start : 5%;
-    margin-inline-end : 5%;
+    margin-inline-start : 7%;
+    margin-inline-end : 7%;
 `
 
 const Inlineli = styled.li`
@@ -52,17 +52,74 @@ export const skills = [
     {
         name : "FrontEnd",
         img : "./imgs/front.png",
-        contents : "HTML · CSS · JavaScript · JQuery \n React · ReactNative · SPA 개발 \n AndroidStudio 개발"
+        contents : "HTML · CSS · JavaScript · JQuery \n React · ReactNative · SPA 개발 \n AndroidStudio 개발",
+        intro : [
+            {
+                name : "Html",
+                img : "./imgs/front_html.png",
+                text : "웹 페이지를 위한 마크업 언어"
+            },
+            {
+                name : "Css ",
+                img : "./imgs/front_css.png",
+                text : "Html요소를 디자인하기 위한 언어"
+            },
+            {
+                name : "JavaScript ",
+                img : "./imgs/front_js.png",
+                text : "웹 페이지를 동적으로 변경해주는 언어"
+            },
+            {
+                name : "React ",
+                img : "./imgs/front_react.png",
+                text : "컴포넌트 기반으로 된 JavaScript 라이브러리 SPA(Single Page Application) 제작"
+            },
+            {
+                name : "Android Studio ",
+                img : "./imgs/front_aS.png",
+                text : "안드로이드 전용 어플 제작 개발 환경"
+            },
+        ]
     },
     {
         name : "BackEnd",
         img : "./imgs/back.png",
-        contents : "SpringBoot · NodeJs · Django API구현 \n MySQL DB 스키마 설계 \n"
+        contents : "SpringBoot · NodeJs · Django API구현 \n MySQL DB 스키마 설계 \n",
+        intro : [
+            {
+                name : "Java",
+                img : "./imgs/back_java.png",
+                text : "객체 지향적 프로그래밍 언어"
+            },
+            {
+                name : "Spring ",
+                img : "./imgs/back_spring.png",
+                text : "자바 플랫폼을 위한 오픈 소스 프레임워크"
+            },
+            {
+                name : "JavaScript ",
+                img : "./imgs/front_js.png",
+                text : "웹 페이지를 동적으로 변경해주는 언어"
+            },
+            {
+                name : "React ",
+                img : "./imgs/front_react.png",
+                text : "컴포넌트 기반으로 된 JavaScript 라이브러리 SPA(Single Page Application) 제작"
+            },
+            {
+                name : "Android Studio ",
+                img : "./imgs/front_aS.png",
+                text : "안드로이드 전용 어플 제작 개발 환경"
+            },
+        ]
     },
     {
         name : "Collaboration",
         img : "./imgs/collaboration.png",
-        contents : "Git 버전관리 · Webpack 번들러 사용 \n Firebase 플랫폼 사용\n Figma UI/UX 협업"
+        contents : "Git 버전관리 · Webpack 번들러 사용 \n Firebase 플랫폼 사용\n Figma UI/UX 협업",
+        intro : [
+            
+        ]
     }
 ]
 
@@ -167,7 +224,7 @@ function Hq(props){
             }}>
                 <div style={{float : 'right', margin : '5%', width : '600px'}}>
                     <Ptag size="xl" color="white">
-                        Rlay라는 단어는 <Span size="xxl" color="main">“ 락규가 즐거워한다. ”</Span>를 <br/>
+                        Rlay라는 단어는 < strong>“락규가 즐거워한다.”</strong>를 <br/>
                         영어이름 + 영단어의 조합 Rock + Play 를 합친 단어입니다.<br/>
                         <br/>
                         <Typed 
