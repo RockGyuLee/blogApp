@@ -148,7 +148,7 @@ function HeaderTableOrMobileList({datas}){
 
 function Header(props){
     return(
-        <Container height={props.height} css={{position : "sticky", backgroundColor : 'white', top : 0, zIndex : 1,  margin : "0 auto", borderBottom : "solid 1px #eee"}}>
+        <Container height={props.height} css={{position : "fixed", backgroundColor : 'white', top : 0, zIndex : 1,  margin : "0 auto", borderBottom : "solid 1px #eee"}}>
             <Flex css={{position : "absolute", top : "50%", transform : "translateY(-50%)"}}>
                 <LinkTag to={"/"} css={{width : "10vw"}}>
                     <HyperText size={"titleSize"} css={{margin : "0px 0px 0px 10px"}}>Rlay</HyperText>

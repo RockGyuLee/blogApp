@@ -7,7 +7,7 @@ function DesktopOrLaptop(props){
     return(
         <>
             <Header height="8vh"/>
-            <Container height="92vh">
+            <Container height="92vh" >
                 <PageSwitcher device={"desktop"}/>
             </Container>
         </>

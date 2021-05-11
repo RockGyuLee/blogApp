@@ -68,9 +68,28 @@ const myInfo = [
         Icon : <FontIconMainColor icon = {faHandshake} size={"5x"}/>,
         contents : '서로의 신뢰와\n협업',
         msg : `무엇을 하던지 혼자서 하기란 지치고 매우 힘이 듭니다. 
-            우리 서로를 신뢰하고 믿어야 더 좋은 협업이 가능하고 그 결과는 좋은 제품이 나온다고 생각하고 있습니다.`
+            서로를 신뢰하고 믿어야 더 좋은 협업이 가능하고 그 결과는 좋은 제품이 나온다고 생각하고 있습니다.`
     }
 ]
+
+const rlay = [
+    {
+        title : "열정",
+        text : "내 일에 열정을 가지고 일하시는 분!!"
+    },
+    {
+        title : "도전",
+        text : "새로운 환경, 기술에 호의적이며 도전을 두려워하지 않고 열린 마음으로 생각하시는 분!!"
+    },
+    {
+        title : "존중",
+        text : "나도 최고지만! 상대방도 최고라고 생각하고 존중할 줄 아시는분!!"
+    }
+]
+
+const blogText = `코딩을 하다보면 다양한 유형의 class나 method를 사용합니다. 
+    자주 사용하는 클래스나 메서드는 내용을 잘 알고 있지만 한두번 사용한 메서드는 그때 당시에 알고있다고 넘어가지만 몇일이 지난후에 다시 보면 고개를 갸우뚱하게 됩니다.
+    이러한 경험이 잦다보니 모든걸 기억하고 있기보다는 기록을 하자는 습관을 가지려 블로그를 시작하게 되었죠!!`
 
 // iconComp 아이콘, contents : 내용
 function LiCircle({iconComp, contents}){
@@ -96,14 +115,15 @@ function Intro(props){
             margin : '2% 14%',
             display : 'flex',
             flexDirection : 'column',
+            paddingTop : '4%'
         }}>
             <Span size="subTitleSize" css={{marginTop : '1%'}}> 
                 다양한 경험을 하고 모든 일에 즐길 줄 아는 사람이 되기 위해서 노력하는<br/>
                 개발자 이락규입니다.
             </Span>
             <Line css={{marginTop : '1.5%'}} color="backG"/>      
-            <Span size="xxxl" css={{marginTop : '2%'}}>#나란 놈이란?</Span>
-            <Span size="xxl" css={{marginTop : '1%'}}>나의 4가지 Point</Span>
+            <Span size="xxxl" css={{marginTop : '2%'}}>#나의 4가지 Point</Span>
+            <Span size="xxl" css={{marginTop : '1%'}}>나를 표현할 수 있는 핵심 키워드 4가지에 대하여 이야기해봐요!</Span>
             <Container width="auto" height="20%" css={{
                 position : 'relative',
                 textAlign : 'center',
@@ -138,12 +158,13 @@ function Intro(props){
                 #기술 스택
             </Span>
             <Span size="xxl" css={{marginTop : '1%'}}>
-                실무에서 사용하여 프로젝트를 진행한 기술들과 다양한 Toy프로젝트를 통해서 배워나간 기술들을 나열합니다.
+                실무에서 사용하여 프로젝트를 진행한 기술들과 다양한 Toy프로젝트를 통해서 배워나간 기술들을 나열합니다.<br/>
+                또한, 기술들의 설명을 제 느낌으로 간단하게 적었습니다.
             </Span>
             <Flex css={{flexDirection : 'column'}}>
                 {
                     skills.map( (skill, idx)=> (
-                        <Container key={idx} width="100%" height="auto" css={{display : 'flex'}}>
+                        <Container key={idx} width="100%" height="auto" css={{display : 'flex', marginBottom : '3%'}}>
                             <Container width="30%" height="auto" css={{
                                 display : 'grid',
                                 placeItems: 'center'
@@ -154,16 +175,22 @@ function Intro(props){
                             <Ul css={{display : 'flex', flexWrap : 'wrap', width : "100%"}}>
                                 {
                                     skill.intro.map( (item, iidx) => (
-                                        <Inlineli key ={iidx} css={{display : 'flex', width : '50%', marginTop : '2%'}}>
+                                        <Inlineli key ={iidx} css={{display : 'flex', width : '50%', marginTop : '2%', marginRigth : '2%'}}>
                                             <div css={{display : 'grid', placeItems : 'center'}}>
                                                 <img src={item.img}/>
                                             </div>
-                                            <div css={{marginLeft : "2%"}}>
+                                            <div css={{marginLeft : "5%", paddingRight : "5%"}}>
                                                 <Span size="xxxl">{
                                                     item.name
                                                 }</Span>
                                                 <br/>
-                                                <Span size="xl">{item.text}</Span>
+                                                <Span size="xl">{
+                                                    item.text.split('\n').map( (line , iiidx) => (
+                                                        <Fragment key={iiidx}>
+                                                            {line}<br/>
+                                                        </Fragment>
+                                                    ))
+                                                }</Span>
                                             </div>
                                         </Inlineli>
                                     ))
@@ -173,6 +200,17 @@ function Intro(props){
                     ))
                 }
             </Flex>
+            <Line css={{marginTop : '1.5%'}} color="backG"/>
+            <Span size="xxxl" css={{marginTop : '2%'}}>#그래서 Rlay 너 정체가 뭐야?</Span>
+            <Span size="xxl" css={{marginTop : '1%'}}>
+                블로그를 적으면서 놀고 있어요!
+            </Span>
+            <Span size="xl" css={{marginTop : '1%'}}>
+                {blogText}
+            </Span>
+            <Span size="xxl" css={{marginTop : '1%'}}>
+                저는 혼자 노는것도 좋아하지만, 이런 분들과 노는걸 좋아해요!
+            </Span>
         </Container>
     )
 }

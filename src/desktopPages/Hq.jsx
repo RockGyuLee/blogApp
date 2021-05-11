@@ -57,60 +57,55 @@ export const skills = [
             {
                 name : "Html",
                 img : "./imgs/front_html.png",
-                text : "웹 페이지를 위한 마크업 언어"
+                text : "웹 페이지를 위한 마크업 언어.\n정적인 놈!"
             },
             {
                 name : "Css ",
                 img : "./imgs/front_css.png",
-                text : "Html요소를 디자인하기 위한 언어"
+                text : "Html요소를 디자인하기 위한 언어!\n다양한 라이브러리가 있다!"
             },
             {
                 name : "JavaScript ",
                 img : "./imgs/front_js.png",
-                text : "웹 페이지를 동적으로 변경해주는 언어"
+                text : "웹 페이지를 동적으로 변경해주는 언어!\n다양한 라이브러리들이 존재한다."
             },
             {
                 name : "React ",
                 img : "./imgs/front_react.png",
-                text : "컴포넌트 기반으로 된 JavaScript 라이브러리 SPA(Single Page Application) 제작"
+                text : "컴포넌트 기반으로 된 JavaScript 라이브러리.\n컴포넌트별로 작성하여 생산성과 유지보수에 용이하다."
             },
             {
-                name : "Android Studio ",
+                name : "Android Studio",
                 img : "./imgs/front_aS.png",
-                text : "안드로이드 전용 어플 제작 개발 환경"
+                text : "안드로이드 전용 어플 제작 개발 환경!\n우리 모두 마음속에 어플 하나씩은 있잖아요?"
             },
         ]
     },
     {
         name : "BackEnd",
         img : "./imgs/back.png",
-        contents : "SpringBoot · NodeJs · Django API구현 \n MySQL DB 스키마 설계 \n",
+        contents : "SpringBoot · Django API구현 \n MySQL DB 스키마 설계 \n",
         intro : [
             {
                 name : "Java",
                 img : "./imgs/back_java.png",
-                text : "객체 지향적 프로그래밍 언어"
+                text : "객체 지향적 프로그래밍 언어.\n나에게 코딩의 재미를 알게해준 정말 고마운 언어."
             },
             {
                 name : "Spring ",
                 img : "./imgs/back_spring.png",
-                text : "자바 플랫폼을 위한 오픈 소스 프레임워크"
+                text : "자바 플랫폼을 위한 오픈 소스 프레임워크. 서버측 렌더링을 담당해준다.\n알면 알수록 신기한 스프링!"
             },
             {
-                name : "JavaScript ",
-                img : "./imgs/front_js.png",
-                text : "웹 페이지를 동적으로 변경해주는 언어"
+                name : "Django ",
+                img : "./imgs/back_django.png",
+                text : "Python으로 되어진 웹 프레임워크.\nRestApi를 통해서 데이터를 주고 받아봤는데 개발 속도가 스프링보다 확실히 빠르다!"
             },
             {
-                name : "React ",
-                img : "./imgs/front_react.png",
-                text : "컴포넌트 기반으로 된 JavaScript 라이브러리 SPA(Single Page Application) 제작"
-            },
-            {
-                name : "Android Studio ",
-                img : "./imgs/front_aS.png",
-                text : "안드로이드 전용 어플 제작 개발 환경"
-            },
+                name : "Mysql",
+                img : "./imgs/back_mysql.png",
+                text : "관계형데이터베이스에 적용되는 언어로 확장성, 보안성, 안정성이 높다.\n쿼리 속도 줄여나가는 재미를 알게되면 그 늪에서 헤어나오지 못한다.."
+            }
         ]
     },
     {
@@ -118,7 +113,26 @@ export const skills = [
         img : "./imgs/collaboration.png",
         contents : "Git 버전관리 · Webpack 번들러 사용 \n Firebase 플랫폼 사용\n Figma UI/UX 협업",
         intro : [
-            
+            {
+                name : "Git",
+                img : "./imgs/colla_git.png",
+                text : "협업에 무조건 필수 요소 git!!\n여러명과 또는 여러팀과 개발을 하는데 깃을 안쓴다? 이제는 상상도 하기 싫다! git 쵴오!"
+            },
+            {
+                name : "Webpack ",
+                img : "./imgs/colla_webpack.png",
+                text : "다양한 파일들 어떻게 다 변환할꺼야??\n모르면 js, css만 쓰겠지만 다양한 라이브러리들을 한순간에 변환시켜주는데 안쓸거야? 웹풱!"
+            },
+            {
+                name : "Firebase",
+                img : "./imgs/colla_firebase.png",
+                text : "인증, 데이터베이스, 푸시 알람, 내가 만든 API이런거 서버 만들고 그래야하는데 귀찮은거 다 Firebase가 해준다니까?\n시간 절약 효과 "
+            },
+            {
+                name : "Figma",
+                img : "./imgs/colla_figma.png",
+                text : "프론트개발자가 디자인 신경 안쓰는건 옛말!\n이제 서로 피그마를 통해서 같이 만들어 나가면서 이야기하면 능률이 업그뤠이드!"
+            }
         ]
     }
 ]
