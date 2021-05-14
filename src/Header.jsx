@@ -46,7 +46,7 @@ const DropdownList = styled.div`
     width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     margin-right : 5%;
-    margin-top : 5px;
+    margin-top : 10px;
     padding: 10px 5px;
     z-index: 1;
 `
@@ -65,7 +65,7 @@ function HeaderList({datas}){
     }
 
     return(
-        <div style={{marginTop : "25px", width : "90vw"}}>
+        <div style={{marginTop : "10px"}}>
             {
                 datas.map((item, idx) => {
                    return(
@@ -73,13 +73,13 @@ function HeaderList({datas}){
                         {
                             item.displayName == '깃허브'
                             ? 
-                            <HyperText size={"xxxl"} onClick={moveToGithub}
+                            <HyperText size="lg" onClick={moveToGithub}
                             css={{marginRight : "60px"}}
                             >
                                 {item.displayName}
                             </HyperText>
                             :
-                            <HyperText size={"xxxl"}
+                            <HyperText size="lg"
                             css={{marginRight : "60px"}}
                             >
                                 {item.displayName}
@@ -151,7 +151,7 @@ function Header(props){
         <Container height={props.height} css={{position : "fixed", backgroundColor : 'white', top : 0, zIndex : 1,  margin : "0 auto", borderBottom : "solid 1px #eee"}}>
             <Flex css={{position : "absolute", top : "50%", transform : "translateY(-50%)"}}>
                 <LinkTag to={"/"} css={{width : "10vw"}}>
-                    <HyperText size={"titleSize"} css={{margin : "0px 0px 0px 10px"}}>Rlay</HyperText>
+                    <HyperText size={"hd"} css={{margin : "0px 0px 0px 10px"}}>Rlay</HyperText>
                 </LinkTag>
                 <HeaderList datas={categoryList} />
             </Flex>
@@ -164,7 +164,7 @@ export function HeaderTableOrMobile(props){
         <MobileContainer height={props.height} css={{position : "relative", margin : "0 auto", borderBottom : "solid 1px #eee"}}>
             <div style={{width : "20%"}}>
                 <LinkTag to={"/"} >
-                    <HyperText size={"titleSize"} css={{margin : "0px 0px 0px 10px"}}>Rlay</HyperText>
+                    <HyperText size={"hd"} css={{margin : "0px 0px 0px 10px"}}>Rlay</HyperText>
                 </LinkTag>
                 
             </div>

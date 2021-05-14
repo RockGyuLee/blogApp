@@ -12,7 +12,7 @@ export const Flex = styled.div`
 
 
 export const Text = styled.span`
-    font-size : ${({theme, size})=> theme.fontSizes[size]};
+    font-size : ${({theme, size})=> theme.deskTopFontSizes[size]};
 `
 
 export const Atag = styled.a`

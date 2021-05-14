@@ -23,7 +23,7 @@ const ClickDiv = styled.div`
 `
 
 const Ptag = styled.p`
-    font-size : ${({size, theme}) => theme.fontSizes[size]};
+    font-size : ${({size, theme}) => theme.deskTopFontSizes[size]};
     color : ${({color, theme}) => theme.colors[color] || theme.colors['black']}
 `
 
@@ -146,8 +146,8 @@ function HqIntro(props){
             margin : '0 auto'
         }}>
             <div style={{marginTop : "20px"}}>
-                <Span size="xxxl"> - Skills -</Span>
-                <Ptag size="lg">
+                <Span size="lg"> - Skills -</Span>
+                <Ptag size="lmd">
                     개발 파트별로 정리한 기술 스택입니다.<br></br>
                     분야별 기술에 대하여 더 자세한 내용은 소개 페이지에서 확인이 가능합니다.
                 </Ptag>
@@ -159,7 +159,7 @@ function HqIntro(props){
                                     <img src={s.img} width={"250px"} height={"250px"}/>
                                     <Title color='main'>{s.name}</Title>
                                 </div>
-                                <Ptag size="lg">
+                                <Ptag size="md">
                                 {
                                     s.contents.split('\n').map( (line, idx) => (
                                         <Fragment key={idx}>
@@ -187,17 +187,17 @@ function HqProject(props){
             <Flexx>
                 <ClickDiv style={{display : 'flex', width : '33%', border : "solid", borderWidth : 'thin', marginTop : '1%', marginBottom : '1%'}}>
                     <div style={{ marginTop : '1%', marginLeft : '1%', marginBottom : '1%', width : '70%'}}>
-                        <Span size="xxxl">
+                        <Span size="lmd">
                             회사 프로젝트<br/>
                         </Span>
                         <br/>
-                        <Span size="lg" color="black">
+                        <Span size="md" color="black">
                             회사에서 진행한 프로젝트입니다.<br/>
                             실제 운용되고 있는 프로그램이며 제품 운용중입니다.
                         </Span>
                         <br/>
                         <br/>
-                        <Span size="lg" color="black">
+                        <Span size="sm" color="black">
                             더 보기 →
                         </Span>
                     </div>
@@ -206,18 +206,18 @@ function HqProject(props){
                     </div>
                 </ClickDiv>
                 <ClickDiv style={{display : 'flex', width : '33%', border : "solid", borderWidth : 'thin', marginTop : '1%', marginBottom : '1%'}}>
-                    <div style={{ marginTop : '2%', marginLeft : '1%', width : '70%'}}>
-                        <Span size="xxxl">
+                    <div style={{ marginTop : '1%', marginLeft : '1%', marginBottom : '1%', width : '70%'}}>
+                        <Span size="lmd">
                             Toy 프로젝트<br/>
                         </Span>
                         <br/>
-                        <Span size="lg" color="black">
-                            다양한 기술들을 접하고 개발한 포트폴리오입니다.<br/>
+                        <Span size="md" color="black">
+                            다양한 기술들을 접하고 개발한 포트폴리오입니다.
                             학습용 프로그램, 간단한 서비스들 개발 활동입니다. 
                         </Span>
                         <br/>
                         <br/>
-                        <Span size="lg" color="black">
+                        <Span size="sm" color="black">
                             더 보기 →
                         </Span>
                     </div>
@@ -237,7 +237,7 @@ function Hq(props){
                 position : 'relative', width : "100%", height:"500px", backgroundColor : "black",
             }}>
                 <div style={{float : 'right', margin : '5%', width : '600px'}}>
-                    <Ptag size="xl" color="white">
+                    <Ptag size="md" color="white">
                         Rlay라는 단어는 < strong>“락규가 즐거워한다.”</strong>를 <br/>
                         영어이름 + 영단어의 조합 Rock + Play 를 합친 단어입니다.<br/>
                         <br/>

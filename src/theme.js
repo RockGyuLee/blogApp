@@ -12,6 +12,19 @@ const fontSizes = {
   subTitleSize: calcRem(40),
 };
 
+const deskTopFontSizes = {
+  sm : "16px",
+  smd : "20px",
+  md : "24px",
+  lmd : "30px",
+  lg : "36px",
+  hd : "48px"
+}
+
+const tabletFontSizes = {
+  
+};
+
 const paddings = {
   small: calcRem(8),
   base: calcRem(10),
@@ -69,6 +82,7 @@ const device = {
 
 const theme = {
   fontSizes,
+  deskTopFontSizes,
   colors,
   deviceSizes,
   device,

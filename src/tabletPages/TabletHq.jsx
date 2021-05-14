@@ -151,7 +151,7 @@ function TabletHq(props){
                         />
                     </Ptag>
                 </div>
-                <img style={{position : 'absolute', width : '50%'}} src='./imgs/r.png'/>
+                <img style={{position : 'absolute', width : '40%'}} src='./imgs/r.png'/>
             </div>
             <HqIntro/>
             <HqProject/>

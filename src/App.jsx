@@ -13,8 +13,8 @@ import { useMediaQuery } from "react-responsive";
 
 export default function App(){
 
-    const isDesktopOrLaptop = useMediaQuery({ minWidth: 992 });
-    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 })
+    const isDesktopOrLaptop = useMediaQuery({ minWidth: 1025 });
+    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
     const isMobile = useMediaQuery({ maxWidth: 767 });
 
     return(
