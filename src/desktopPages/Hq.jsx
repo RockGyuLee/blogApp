@@ -1,10 +1,11 @@
 import React, {Fragment} from 'react';
 import styled from "styled-components";
 import Typed from "react-typed";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Carousel from "react-elastic-carousel";
 import {faBuilding, faGamepad} from "@fortawesome/free-solid-svg-icons"
 
-import { Container, Text, Flex } from "../components/Main";
+import { Container, Text, Flex, ClickDiv, ClickInlineli, RadiusImg, Item } from "../components/Main";
 
 const Span = styled(Text)`
     color : ${({color, theme }) => theme.colors[color] || theme.colors.main};
@@ -18,10 +19,6 @@ const Title = styled.h3`
     color : ${({theme }) => theme.colors.main};
 `
 
-const ClickDiv = styled.div`
-    cursor: pointer;
-`
-
 const Ptag = styled.p`
     font-size : ${({size, theme}) => theme.deskTopFontSizes[size]};
     color : ${({color, theme}) => theme.colors[color] || theme.colors['black']}
@@ -30,8 +27,8 @@ const Ptag = styled.p`
 const Ul = styled.ul`
     margin-block-start : 2%;
     margin-block-end : 2%;
-    margin-inline-start : 7%;
-    margin-inline-end : 7%;
+    margin-inline-start : 15%;
+    margin-inline-end : 15%;
 `
 
 const Inlineli = styled.li`
@@ -39,7 +36,9 @@ const Inlineli = styled.li`
 `
 
 const Flexx = styled(Flex)`
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items : center;
+    flex-direction : column;
 `
 
 export const strArray =  [
@@ -137,6 +136,48 @@ export const skills = [
     }
 ]
 
+export const project = [
+    {
+        projectTitle : "회사 프로젝트",
+        color : "red",
+        items : [
+            {
+                name : '코레일 빅데이터분석시스템',
+                skill : `Spring Boot / Html · CSS · JS(React)`,
+                date : '2019/09/01 ~ 현재',
+                img : './imgs/dataAnal_login.png',
+                contents : `프론트 개발 업무를 메인으로 진행해왔으며, 백부분은 서브로 진행했습니다. 웹사이트의 화면 기획(UI,UX)도 진행했습니다. 프론트와 백은 rest api로 분리하여 진행했습니다. 
+                    빅데이터 분석 시스템은 시계열 데이터로 저장되는 데이터들을 전처리하여 진단, 예측한 데이터를 사용자들에게 효과적으로 보여주는 시스템입니다.`
+            },
+            {
+                name : '코레일 빅데이터분석시스템',
+                skill : `Spring Boot / Html · CSS · JS(React)`,
+                date : '2019/09/01 ~ 현재',
+                img : './imgs/dataAnal_login.png',
+                contents : `프론트 개발 업무를 메인으로 진행해왔으며, 백부분은 서브로 진행했습니다. 웹사이트의 화면 기획(UI,UX)도 진행했습니다. 프론트와 백은 rest api로 분리하여 진행했습니다. 
+                    빅데이터 분석 시스템은 시계열 데이터로 저장되는 데이터들을 전처리하여 진단, 예측한 데이터를 사용자들에게 효과적으로 보여주는 시스템입니다.`
+            }
+        ]
+    },
+    {
+        projectTitle : "토이 프로젝트",
+        color : "blue",
+        items : [
+            {
+                name : '책동산',
+                skill : `React-Native, AndroidStudio`,
+                img : 'dataAnal_login',
+                date : '2020/05/01 ~ 2021/03/31',
+                contents : ``
+            },
+
+            {
+                name : '',
+            }
+        ]
+    }
+]
+
 function HqIntro(props){
 
     return(
@@ -145,9 +186,9 @@ function HqIntro(props){
             textAlign : 'center',
             margin : '0 auto'
         }}>
-            <div style={{marginTop : "20px"}}>
+            <div style={{marginTop : "1.5%"}}>
                 <Span size="lg"> - Skills -</Span>
-                <Ptag size="lmd">
+                <Ptag size="smd">
                     개발 파트별로 정리한 기술 스택입니다.<br></br>
                     분야별 기술에 대하여 더 자세한 내용은 소개 페이지에서 확인이 가능합니다.
                 </Ptag>
@@ -178,6 +219,7 @@ function HqIntro(props){
 }
 
 function HqProject(props){
+    
     return (
         <Container width="auto" height="auto" css={{
             position : 'relative',
@@ -185,46 +227,68 @@ function HqProject(props){
             backgroundColor : '#F2F2F2'
         }}>
             <Flexx>
-                <ClickDiv style={{display : 'flex', width : '33%', border : "solid", borderWidth : 'thin', marginTop : '1%', marginBottom : '1%'}}>
-                    <div style={{ marginTop : '1%', marginLeft : '1%', marginBottom : '1%', width : '70%'}}>
-                        <Span size="lmd">
-                            회사 프로젝트<br/>
-                        </Span>
-                        <br/>
-                        <Span size="md" color="black">
-                            회사에서 진행한 프로젝트입니다.<br/>
-                            실제 운용되고 있는 프로그램이며 제품 운용중입니다.
-                        </Span>
-                        <br/>
-                        <br/>
-                        <Span size="sm" color="black">
-                            더 보기 →
-                        </Span>
-                    </div>
-                    <div style={{ display : 'flex', alignItems : 'center', justifyContent : 'center', margin : '1%', width : '30%', }}>
-                        <FontIconMainColor icon = {faBuilding} size={"5x"}/>
-                    </div>
-                </ClickDiv>
-                <ClickDiv style={{display : 'flex', width : '33%', border : "solid", borderWidth : 'thin', marginTop : '1%', marginBottom : '1%'}}>
-                    <div style={{ marginTop : '1%', marginLeft : '1%', marginBottom : '1%', width : '70%'}}>
-                        <Span size="lmd">
-                            Toy 프로젝트<br/>
-                        </Span>
-                        <br/>
-                        <Span size="md" color="black">
-                            다양한 기술들을 접하고 개발한 포트폴리오입니다.
-                            학습용 프로그램, 간단한 서비스들 개발 활동입니다. 
-                        </Span>
-                        <br/>
-                        <br/>
-                        <Span size="sm" color="black">
-                            더 보기 →
-                        </Span>
-                    </div>
-                    <div style={{ display : 'flex', alignItems : 'center', justifyContent : 'center', margin : '1%', width : '30%', }}>
-                        <FontIconMainColor icon = {faGamepad} size={"5x"}/>
-                    </div>
-                </ClickDiv>
+                <div style={{paddingTop : "1.5%"}}>
+                    <Span size="lg"> - Project -</Span>
+                </div>
+                <Carousel>
+                <Item>1</Item>
+                <Item>2</Item>
+                <Item>3</Item>
+                <Item>4</Item>
+                <Item>5</Item>
+                <Item>6</Item>
+                </Carousel>
+                <div style={{paddingTop : "1.5%"}}>
+                    <Span size="smd"> 프로젝트 별 맡은 역할과 
+                    쓰인 기술과 느낀 경험들을 나열합니다.
+                    </Span>
+                </div>
+                <Flex css={{
+                    flexDirection : 'column',
+                    marginInlineStart : "15%",
+                    marginInlineEnd : "15%"
+                }}>
+                    {
+                        project.map( (p, idx)=> (
+                            <Container key={idx} width="100%" height="auto" css={{display : 'flex', marginBottom : '3%'}}>
+                                    <Span size="lmd" css={{
+                                        fontWeight : 'bold'
+                                    }}>{p.projectTitle}</Span>
+                                <Ul css={{display : 'flex', flexWrap : 'wrap', width : "70%", marginInlineStart : "5%", marginInlineEnd : "5%"}}>
+                                    {
+                                        p.items.map( (item, iidx) => (
+                                            <ClickInlineli key ={iidx} css={{
+                                                display : 'flex', flexDirection : 'column', width : '45%', marginTop : '2%', marginRight : '2%', border : "1px solid"
+                                            }}>
+                                                <div css={{display : 'flex', width : 'auto'}}>
+                                                    <div css={{display : 'flex', width : 'auto',flexDirection : 'column'}}>
+                                                        <img src={item.img}/>
+                                                    </div>
+                                                    <div css={{display : 'flex', width : 'auto', flexDirection : 'column'}}>
+                                                        <div>
+                                                            {item.name}
+                                                        </div>
+                                                        <div>
+                                                            {item.date}
+                                                        </div>
+                                                        <div>
+                                                            {item.skill}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div css={{marginLeft : "5%", paddingRight : "5%"}}>
+                                                    <Span size="md">{
+                                                        item.contents
+                                                    }</Span>
+                                                </div>
+                                            </ClickInlineli>
+                                        ))
+                                    }
+                                </Ul>
+                            </Container>
+                        ))
+                    }
+                </Flex>
             </Flexx>
         </Container>
     )
