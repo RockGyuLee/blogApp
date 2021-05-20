@@ -150,7 +150,7 @@ export const project = [
                     빅데이터 분석 시스템은 시계열 데이터로 저장되는 데이터들을 전처리하여 진단, 예측한 데이터를 사용자들에게 효과적으로 보여주는 시스템입니다.`
             },
             {
-                name : '코레일 빅데이터분석시스템',
+                name : '',
                 skill : `Spring Boot / Html · CSS · JS(React)`,
                 date : '2019/09/01 ~ 현재',
                 img : './imgs/dataAnal_login.png',
@@ -166,7 +166,7 @@ export const project = [
             {
                 name : '책동산',
                 skill : `React-Native, AndroidStudio`,
-                img : 'dataAnal_login',
+                img : './imgs/bookPark.png',
                 date : '2020/05/01 ~ 2021/03/31',
                 contents : ``
             },
@@ -197,7 +197,7 @@ function HqIntro(props){
                         skills.map( (s, idx) => (
                             <Inlineli key={idx} css={{width : '33%'}}>
                                 <div style={{display : 'block'}}>
-                                    <img src={s.img} width={"250px"} height={"250px"}/>
+                                    <img src={s.img} width={"300px"} height={"250px"}/>
                                     <Title color='main'>{s.name}</Title>
                                 </div>
                                 <Ptag size="md">
@@ -230,14 +230,7 @@ function HqProject(props){
                 <div style={{paddingTop : "1.5%"}}>
                     <Span size="lg"> - Project -</Span>
                 </div>
-                <Carousel>
-                <Item>1</Item>
-                <Item>2</Item>
-                <Item>3</Item>
-                <Item>4</Item>
-                <Item>5</Item>
-                <Item>6</Item>
-                </Carousel>
+                
                 <div style={{paddingTop : "1.5%"}}>
                     <Span size="smd"> 프로젝트 별 맡은 역할과 
                     쓰인 기술과 느낀 경험들을 나열합니다.
@@ -248,13 +241,27 @@ function HqProject(props){
                     marginInlineStart : "15%",
                     marginInlineEnd : "15%"
                 }}>
+                    
                     {
                         project.map( (p, idx)=> (
-                            <Container key={idx} width="100%" height="auto" css={{display : 'flex', marginBottom : '3%'}}>
+                            <Container key={idx} width="70vw" height="auto" css={{display : 'flex', marginBottom : '3%', justifyContent : 'center'}}>
                                     <Span size="lmd" css={{
                                         fontWeight : 'bold'
-                                    }}>{p.projectTitle}</Span>
-                                <Ul css={{display : 'flex', flexWrap : 'wrap', width : "70%", marginInlineStart : "5%", marginInlineEnd : "5%"}}>
+                                    }}>{p.projectTitle}
+                                    </Span>
+                                    <Carousel css={{display : 'flex', flexWrap : 'wrap', width : "70%", marginInlineStart : "5%", marginInlineEnd : "5%"}}>
+                                        {
+                                            p.items.map( (item, iidx)=> (
+                                                <Item>
+                                                    <img src={item.img} height="80%"/>
+                                                    <Span size="md">제목 : {item.name}</Span>
+                                                    <Span size="md" css={{marginTop : '1%'}}> 날짜 : {item.date}</Span>
+                                                    <Span size="md" css={{marginTop : '1%'}}> 스킬 : {item.skill}</Span>
+                                                </Item>
+                                            ))
+                                        }
+                                    </Carousel>
+                                {/* <Ul css={{display : 'flex', flexWrap : 'wrap', width : "70%", marginInlineStart : "5%", marginInlineEnd : "5%"}}>
                                     {
                                         p.items.map( (item, iidx) => (
                                             <ClickInlineli key ={iidx} css={{
@@ -284,7 +291,7 @@ function HqProject(props){
                                             </ClickInlineli>
                                         ))
                                     }
-                                </Ul>
+                                </Ul> */}
                             </Container>
                         ))
                     }
