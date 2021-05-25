@@ -42,6 +42,14 @@ module.exports = {
                 ],
             },
             {
+                test: /\.(mp4)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                    },
+                ],
+            },
+            {
                 test: /\.(png|jpg|gif)$/i,
                 use: [
                 {

@@ -66,11 +66,56 @@ export const Item = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 700px;
+  height: 600px;
   width: 500px;
   color: #fff;
   margin: 15px;
   font-size: 4em;
   flex-direction : column;
-  
+  cursor: pointer;
+  position : relative;
 `;
+
+export const CarouselItem = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    width: 500px;
+    color: #fff;
+    margin: 15px;
+    font-size: 4em;
+    flex-direction : column;
+    cursor: pointer;
+    position : relative;
+
+    &:hover ${DisplayOver}{
+        width: inherit;
+        backgroundColor: "rgba(0,0,0,.5)";
+    };
+    &:hover ${BigTitle}{
+        color : gold;
+    };
+`
+
+export const DisplayOver = styled.div({
+  height: "100%",
+  left: "0",
+  position: "absolute",
+  top: "0",
+  width: "100%",
+  zIndex: 2,
+  transition: "background-color 350ms ease",
+  backgroundColor: "transparent",
+  padding: "20px 20px 0 20px",
+  boxSizing: "border-box",
+  opacity : 1,
+});
+
+export const BigTitle = styled.h2({
+  textTransform: "uppercase",
+  display : "grid",
+  placeContent : "center",
+  fontSize : "18px",
+  fontFamily: "Helvetica",
+});
