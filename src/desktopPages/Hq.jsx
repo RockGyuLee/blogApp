@@ -6,6 +6,7 @@ import Carousel from "react-elastic-carousel";
 import {faBuilding, faGamepad} from "@fortawesome/free-solid-svg-icons"
 
 import { Container, Text, Flex, ClickDiv, ClickInlineli, RadiusImg, Item, CarouselItem, DisplayOver, BigTitle} from "../components/Main";
+import CarouselBody from '../components/Carousel';
 
 const Span = styled(Text)`
     color : ${({color, theme }) => theme.colors[color] || theme.colors.main};
@@ -140,15 +141,15 @@ export const skills = [
 export const project = [
     {
         projectTitle : "회사 프로젝트",
-        color : "red",
         items : [
             {
                 name : '코레일 빅데이터분석시스템',
                 skill : `Spring Boot / Html · CSS · JS(React)`,
                 date : '2019/09/01 ~ 현재',
                 img : './imgs/iMac.png',
-                contents : `프론트 개발 업무를 메인으로 진행해왔으며, 백부분은 서브로 진행했습니다. 웹사이트의 화면 기획(UI,UX)도 진행했습니다. 프론트와 백은 rest api로 분리하여 진행했습니다. 
-                    빅데이터 분석 시스템은 시계열 데이터로 저장되는 데이터들을 전처리하여 진단, 예측한 데이터를 사용자들에게 효과적으로 보여주는 시스템입니다.`
+                contents : `프론트 개발 업무를 메인으로 진행해왔으며, 백부분은 서브로 진행했습니다. 
+                            데이터분석시스템 화면 기획부터 프로젝트에 참여했으며, 프론트와 백은 rest api로 분리하여 진행했습니다. 
+                            더 읽기..`
             },
             {
                 name : '',
@@ -247,21 +248,14 @@ function HqProject(props){
                         project.map( (p, idx)=> (
                             <Container key={idx} width="70vw" height="30%" css={{display : 'flex', marginBottom : '3%', justifyContent : 'center'}}>
                                     <Span size="lmd" css={{
+                                        color : '#0f0f0f',
                                         fontWeight : 'bold'
                                     }}>{p.projectTitle}
                                     </Span>
                                     <Carousel css={{display : 'flex', flexWrap : 'wrap', width : "70%", height : "50%", marginInlineStart : "5%", marginInlineEnd : "5%"}}>
                                         {
                                             p.items.map( (item, iidx)=> (
-                                                <CarouselItem key={iidx} > 
-                                                    <img src={item.img} height="70%"/>
-                                                    <Span size="smd" css={{paddingTop : '10%'}}>제목 : {item.name}</Span>
-                                                    <Span size="smd" css={{marginTop : '1%'}}> 날짜 : {item.date}</Span>
-                                                    <Span size="smd" css={{paddingBottom : '5%'}}> 스킬 : {item.skill}</Span>
-                                                    <DisplayOver>
-                                                        <BigTitle>{item.contents}</BigTitle>
-                                                    </DisplayOver>
-                                                </CarouselItem>
+                                                <CarouselBody key={iidx} data={item} />
                                             ))
                                         }
                                     </Carousel>
