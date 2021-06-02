@@ -4,6 +4,7 @@ import {BrowserRouter as Router,Route, Switch } from "react-router-dom";
 //desktop 화면
 const Hq = React.lazy(()=>import("../desktopPages/Hq"));
 const Intro = React.lazy(()=> import("../desktopPages/Intro"));
+const Project = React.lazy(()=> import("../desktopPages/Project"));
 
 // tablet 화면
 const TabletHq = React.lazy(()=>import("../tabletPages/TabletHq"));
@@ -26,6 +27,12 @@ const routes = [
         exact : true,
         device : 'desktop',
         main : Intro
+    },
+    {
+        path : "/project",
+        exact : true,
+        device : 'desktop',
+        main : Project
     },
     {
         path : "/",

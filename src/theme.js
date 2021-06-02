@@ -68,7 +68,7 @@ const colors = {
   gray_1: "#222222",
   gray_2: "#767676",
   green_1: "#3cb46e",
-  main : "#0f0f0f",
+  main : "#333333",
   backG : "#d9d9d9",
 };
 

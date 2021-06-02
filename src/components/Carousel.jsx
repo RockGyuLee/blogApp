@@ -1,7 +1,13 @@
 import React, {useState, Fragment} from "react";
 import styled from "styled-components";
+import {Link} from "react-router-dom";
 
-import {CarouselItem, Span, DisplayOver, BigTitle} from "./Main";
+import {CarouselItem, Span, DisplayOver, BigTitle, MButton} from "./Main";
+
+const LinkTag = styled(Link)`
+    text-decoration : none;
+    color : ${({theme}) => theme.colors.main}
+`
 
 function CItem({data, opacity}){
     return(
@@ -14,31 +20,53 @@ function CItem({data, opacity}){
     )
 }
 
+function Overlay({data, display}){
+
+    const handlePageSwitch = () => {
+        window.location.href = '/project'
+    }
+
+    return (
+        <DisplayOver css={{display : display}}>
+            <BigTitle>
+                {
+                    data.contents.split('\n').map(( line , idx) => (
+                        <Fragment key = {idx}>
+                            {
+                                line == "<b>more</b>" 
+                                ? <MButton>
+                                    <LinkTag to={'/project'}>
+                                        <Span size="sm">더보기..</Span>
+                                    </LinkTag>
+                                    </MButton>  
+                                : <Fragment>
+                                    { line }<br/>
+                                  </Fragment>
+                            }
+                        </Fragment>
+                    ))
+                }
+            </BigTitle>
+        </DisplayOver> 
+    )
+}
+
 function CarouselBody({data}){
 
     const [mouseIn, setMouseIn] = useState(false);
 
-    const changeMouseIn = (evt) => {
+    const changeMouseInTrue = () => {
         setMouseIn(true);
     };
 
-    const changeMouseOut = (evt) => {
+    const changeMouseInFalse = () => {
         setMouseIn(false);
     };
 
-
     return (
-        <CarouselItem onMouseEnter={changeMouseIn} onMouseLeave={changeMouseOut}>
+        <CarouselItem onMouseEnter={changeMouseInTrue} onMouseLeave={changeMouseInFalse}>
             <CItem data={data} opacity={ mouseIn ? 0.3 : 1 }/>
-            {
-                mouseIn 
-                ? 
-                <DisplayOver>
-                    <BigTitle>{data.contents}</BigTitle>
-                </DisplayOver> 
-                : 
-                <></>
-            }
+            <Overlay data={data} display={ mouseIn ? "grid" : "none" }/>
         </CarouselItem>
     )
 }

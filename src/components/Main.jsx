@@ -15,7 +15,7 @@ export const Text = styled.span`
 `
 
 export const Span = styled(Text)`
-    color : ${({color, theme }) => theme.colors[color] || theme.colors.main};
+    color : ${({color, theme }) => theme.colors[color] };
 `
 
 export const Atag = styled.a`
@@ -89,7 +89,6 @@ export const CarouselItem = styled.div`
     margin: 15px;
     font-size: 4em;
     flex-direction : column;
-    cursor: pointer;
     position : relative;
 `
 
@@ -107,7 +106,6 @@ export const DisplayOver = styled.div({
     opacity : 1,
     display : "grid",
     placeItems : "center",
-    transition: ".5s"
 });
 
 export const BigTitle = styled.h2({
@@ -115,3 +113,14 @@ export const BigTitle = styled.h2({
   fontSize : "18px",
   fontFamily: "Helvetica",
 });
+
+export const MButton = styled.button`
+    color :  ${({color,theme}) => color || theme.colors.main};
+    border : 1mm solid ${({color,theme}) => color || theme.colors.main};
+    cursor: pointer;
+    
+    &:hover{
+        background-color : ${({color,theme}) => theme.colors.main};
+        color : ${({color,theme}) => theme.colors.white};
+    }
+`

@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from "styled-components";
 import Typed from "react-typed";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Carousel from "react-elastic-carousel";
 import {faBuilding, faGamepad} from "@fortawesome/free-solid-svg-icons"
 
 import { Container, Text, Flex } from "../components/Main";
-import {strArray, skills} from "../desktopPages/Hq";
+import {strArray, skills, project} from "../desktopPages/Hq";
+import CarouselBody from '../components/Carousel';
 
 const Span = styled(Text)`
     margin-top : 5%;
@@ -26,11 +28,10 @@ const ClickDiv = styled.div`
 const Flexx = styled(Flex)`
     margin : 10%;
     flex-direction : column;
-    justify-content: space-evenly;
 `
 
 const Ptag = styled.p`
-    font-size : ${({size, theme}) => theme.fontSizes[size]};
+    font-size : ${({size, theme}) => theme.deskTopFontSizes[size]};
     color : ${({color, theme}) => theme.colors[color] || theme.colors['black']};
     margin : 5% auto;
 `
@@ -44,8 +45,8 @@ function HqIntro(props){
             margin : '0 auto'
         }}>
             <div style={{marginTop : "5%"}}>
-                <Span size="xxxl"> - Skills -</Span>
-                <Ptag size="lg">
+                <Span size="lmd"> - Skills -</Span>
+                <Ptag size="smd">
                     개발 파트별로 정리한 기술 스택입니다.<br></br>
                     분야별 기술에 대하여 더 자세한 내용은 소개 페이지에서 확인이 가능합니다.
                 </Ptag>
@@ -55,13 +56,15 @@ function HqIntro(props){
                             <Inlineli key={idx} css={{width : '100%'}}>
                                 <div style={{display : 'block'}}>
                                     <img src={s.img} width={"200px"} height={"200px"}/>
-                                    <Ptag size="xxl">{s.name}</Ptag>
+                                    <Ptag size="md">{s.name}</Ptag>
                                 </div>
                                 <div style={{display : 'flex', alignItems : 'center', justifyContent : 'center', width : '100%'}}>
-                                    <Ptag size="lg">
+                                    <Ptag size="md">
                                     {
-                                        s.contents.split('\n').map( line => (
-                                            <>{line}<br/></>
+                                        s.contents.split('\n').map( (line, iidx) => (
+                                            <Fragment key={iidx}>
+                                            {line}<br/>
+                                            </Fragment>
                                         ))
                                     }
                                     </Ptag>
@@ -81,50 +84,51 @@ function HqProject(props){
         <Container width="auto" height="auto" css={{
             position : 'relative',
             margin : '0 auto',
+            textAlign : 'center',
             backgroundColor : '#F2F2F2'
         }}>
             <Flexx>
-                <ClickDiv style={{display : 'flex', width : '100%', border : "solid", marginTop : '5%', marginBottom : '5%'}}>
-                    <div style={{ margin : '1%', width : '70%'}}>
-                        <Span size="xxxl">
-                            회사 · 납품 프로젝트<br/>
-                        </Span>
-                        <br/>
-                        <Span size="lg" color="black">
-                            회사에서 진행한 프로젝트입니다.<br/>
-                            실제 운용되고 있는 프로그램이며 제품 운용중입니다.
-                        </Span>
-                        <br/>
-                        <br/>
-                        <Span size="lg" color="black">
-                            더 보기 →
-                        </Span>
-                    </div>
-                    <div style={{ display : 'flex', alignItems : 'center', justifyContent : 'center', margin : '%', width : '30%', }}>
-                        <FontIconMainColor icon = {faBuilding} size={"5x"}/>
-                    </div>
-
-                </ClickDiv>
-                <ClickDiv style={{display : 'flex', width : '100%', border : "solid", marginTop : '5%', marginBottom : '5%'}}>
-                    <div style={{ marginTop : '2%', marginLeft : '1%', width : '70%'}}>
-                        <Span size="xxxl">
-                            Toy 프로젝트<br/>
-                        </Span>
-                        <br/>
-                        <Span size="lg" color="black">
-                            다양한 기술들을 접하고 개발한 포트폴리오입니다.<br/>
-                            학습용 프로그램, 간단한 서비스들 개발 활동입니다. 
-                        </Span>
-                        <br/>
-                        <br/>
-                        <Span size="lg" color="black">
-                            더 보기 →
-                        </Span>
-                    </div>
-                    <div style={{ display : 'flex', alignItems : 'center', justifyContent : 'center', margin : '1%', width : '30%', }}>
-                        <FontIconMainColor icon = {faGamepad} size={"5x"}/>
-                    </div>
-                </ClickDiv>
+                <div style={{paddingTop : "1.5%"}}>
+                    <Span size="lg"> - Project -</Span>
+                </div>
+                
+                <div style={{paddingTop : "1.5%"}}>
+                    <Span size="smd"> 프로젝트 별 맡은 역할과 
+                    쓰인 기술과 느낀 경험들을 나열합니다.
+                    </Span>
+                </div>
+                <Flex css={{
+                    flexDirection : 'column',
+                    justifyContent : "center",
+                    alignItems : "center"
+                }}>
+                    
+                    {
+                        project.map( (p, idx)=> (
+                            <Fragment key={idx}>
+                                <Span size="lmd" css={{
+                                    color : '#0f0f0f',
+                                    fontWeight : 'bold'
+                                }}>{p.projectTitle}
+                                </Span>
+                                <Container width="70vw" height="30%" 
+                                    css={{display : 'flex', marginTop : '5%', marginBottom : '3%', justifyContent : "center",
+                                        alignItems : "center"}}
+                                >
+                                    <Flex css={{
+                                        flexDirection : 'column',
+                                    }}>
+                                        {
+                                            p.items.map( (item, iidx)=> (
+                                                <CarouselBody key={iidx} data={item} />
+                                            ))
+                                        }
+                                    </Flex>
+                                </Container>
+                            </Fragment>
+                        ))
+                    }
+                </Flex>
             </Flexx>
         </Container>
     )

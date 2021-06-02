@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, Fragment} from 'react';
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import {faBars, faTimes} from "@fortawesome/free-solid-svg-icons"
@@ -30,7 +30,7 @@ const MobileContainer = styled(Container)`
 
 const LinkTag = styled(Link)`
     text-decoration : none;
-    color : ${({theme}) => theme.colors.black}
+    color : ${({theme}) => theme.colors.main}
 `
 
 const Dropdown = styled.div`
@@ -43,7 +43,6 @@ const DropdownList = styled.div`
     position: absolute;
     border : 3px solid black;
     background-color: #f9f9f9;
-    width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     margin-right : 5%;
     margin-top : 10px;
@@ -117,7 +116,7 @@ function HeaderTableOrMobileList({datas}){
                         {
                             datas.map((item, idx) => {
                             return(
-                                <>
+                                <Fragment key={idx}>
                                     {
                                         item.displayName == '깃허브'
                                         ? <Container width="100%" height="100%" css={{borderBottom : "solid 2px", marginBottom : "10px", paddingBottom : "2px"}}>
@@ -138,7 +137,7 @@ function HeaderTableOrMobileList({datas}){
                                             </LinkTag>
                                         </Container>
                                     }
-                                </>
+                                </Fragment>
                                 
                             ) 
                             })

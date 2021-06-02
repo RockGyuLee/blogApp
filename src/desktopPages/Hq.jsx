@@ -12,9 +12,6 @@ const Span = styled(Text)`
     color : ${({color, theme }) => theme.colors[color] || theme.colors.main};
 `
 
-const FontIconMainColor = styled(FontAwesomeIcon)`
-    color :  ${({theme }) => theme.colors.main};
-`
 
 const Title = styled.h3`
     color : ${({theme }) => theme.colors.main};
@@ -41,8 +38,8 @@ const Flexx = styled(Flex)`
     align-items : center;
     flex-direction : column;
 `
-
-
+//빅데이터 분석 시스템은 시계열 데이터로 저장되는 데이터들을 전처리하여 진단, 예측한 데이터를 사용자들에게 효과적으로 보여주는 시스템입니다.
+//facebook, naver의 open api를 사용하여 facebook아이디로 로그인 기능과 사용자들이 원하는 데이터를 화면에 표시합니다... 
 export const strArray =  [
     "코딩하는 순간을 즐기고 있습니다.",
     "다양한 사람, 새로운 기술들을 만나는걸 좋아합니다. :)",
@@ -147,17 +144,9 @@ export const project = [
                 skill : `Spring Boot / Html · CSS · JS(React)`,
                 date : '2019/09/01 ~ 현재',
                 img : './imgs/iMac.png',
-                contents : `프론트 개발 업무를 메인으로 진행해왔으며, 백부분은 서브로 진행했습니다. 
-                            데이터분석시스템 화면 기획부터 프로젝트에 참여했으며, 프론트와 백은 rest api로 분리하여 진행했습니다. 
-                            더 읽기..`
-            },
-            {
-                name : '',
-                skill : `Spring Boot / Html · CSS · JS(React)`,
-                date : '2019/09/01 ~ 현재',
-                img : './imgs/dataAnal_login.png',
-                contents : `프론트 개발 업무를 메인으로 진행해왔으며, 백부분은 서브로 진행했습니다. 웹사이트의 화면 기획(UI,UX)도 진행했습니다. 프론트와 백은 rest api로 분리하여 진행했습니다. 
-                    빅데이터 분석 시스템은 시계열 데이터로 저장되는 데이터들을 전처리하여 진단, 예측한 데이터를 사용자들에게 효과적으로 보여주는 시스템입니다.`
+                contents : `프론트 개발 업무를 메인으로 진행해왔으며, 백부분은 서브로 진행했습니다. \n
+                            데이터분석시스템 화면 기획부터 프로젝트에 참여했으며,\n프론트와 백은 rest api로 분리하여 진행했습니다...
+                            \n<b>more</b>`
             }
         ]
     },
@@ -170,11 +159,10 @@ export const project = [
                 skill : `React-Native, AndroidStudio`,
                 img : './imgs/bookLand_loginAndmain.png',
                 date : '2020/05/01 ~ 2021/03/31',
-                contents : ``
-            },
-
-            {
-                name : '',
+                contents : `React-Native, Android Studio와 연동해서 개발을 진행했습니다. \n
+                            화면 기획부터 프로젝트에 참여했으며 서버단은 Firebase로 구성하여 인증, 데이터베이스, 등의 기능을 사용합니다.\n
+                            실제 Play Store에 업로드 되어져있는 어플이며, 계속 수정/보안해 나갈 예정입니다.
+                            \n<b>more</b>`
             }
         ]
     }
