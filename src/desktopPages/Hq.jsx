@@ -144,7 +144,7 @@ export const project = [
                 skill : `Spring Boot / Html · CSS · JS(React)`,
                 date : '2019/09/01 ~ 현재',
                 img : './imgs/iMac.png',
-                contents : `프론트 개발 업무를 메인으로 진행해왔으며, 백부분은 서브로 진행했습니다. \n
+                contents : `프론트 개발 업무를 메인으로 진행해왔으며, 백엔드 부분은 서브로 진행했습니다. \n
                             데이터분석시스템 화면 기획부터 프로젝트에 참여했으며,\n프론트와 백은 rest api로 분리하여 진행했습니다...
                             \n<b>more</b>`
             }
@@ -162,6 +162,18 @@ export const project = [
                 contents : `React-Native, Android Studio와 연동해서 개발을 진행했습니다. \n
                             화면 기획부터 프로젝트에 참여했으며 서버단은 Firebase로 구성하여 인증, 데이터베이스, 등의 기능을 사용합니다.\n
                             실제 Play Store에 업로드 되어져있는 어플이며, 계속 수정/보안해 나갈 예정입니다.
+                            \n<b>more</b>`
+            },
+            {
+                name : '전북과학경찰정 시체의 부패지수 PMI 계산 어플',
+                skill : `AndroidStudio`,
+                img : './imgs/tbsAndAdd.png',
+                date : '2019/03/15 ~ 2019/06/31',
+                contents : `Android Studio로 개발을 진행했습니다. \n
+                            대학시절 외부기관(전북경찰정과학수사대)의 부탁으로 진행된 프로젝트이며 팀장역할로 업무분담을 했습니다.\n
+                            화면 기획부터 설계를 진행하고, sqlite를 사용하여 내부 데이터를 저장했습니다.\n
+                            부패점수와 GPS와 기상청 open API를 활용하여 해당 지역의 평균 온도 데이터를 가져와 부패가 시작한 날짜를 산출합니다.
+                            실제 Play Store에 업로드 되어져있는 어플입니다.
                             \n<b>more</b>`
             }
         ]
@@ -221,7 +233,7 @@ function HqProject(props){
                     <Span size="lg"> - Project -</Span>
                 </div>
                 
-                <div style={{paddingTop : "1.5%"}}>
+                <div style={{paddingTop : "0.5%"}}>
                     <Span size="smd"> 프로젝트 별 맡은 역할과 
                     쓰인 기술과 느낀 경험들을 나열합니다.
                     </Span>

@@ -119,8 +119,10 @@ export const MButton = styled.button`
     border : 1mm solid ${({color,theme}) => color || theme.colors.main};
     cursor: pointer;
     
-    &:hover{
+    &:hover {
         background-color : ${({color,theme}) => theme.colors.main};
-        color : ${({color,theme}) => theme.colors.white};
+        span {
+            color : ${({color,theme}) => theme.colors.white};
+        }
     }
 `
