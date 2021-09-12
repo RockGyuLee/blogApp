@@ -14,6 +14,9 @@ const categoryList = [
         displayName : "프로젝트",
         path : '/project',
     },{
+        displayName : "게임",
+        path : '/game',
+    },{
         displayName : "블로그",
         path : '/blog',
     },{
